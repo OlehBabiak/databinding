@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  serverElements = [];
+  serverElements = [{name: 'Test1', type: 'server', content: 'Test description'}];
 
-  onServerAdded(serverData: {serverName: string, content: string}) {
+
+  onServerAdded(serverData: { serverName: string, content: string }) {
     this.serverElements.push({
       type: 'server',
       name: serverData.serverName,
@@ -16,11 +17,15 @@ export class AppComponent {
     });
   }
 
-  onBlueprintAdded(blueprintData: {serverName: string, content: string}) {
+  onBlueprintAdded(blueprintData: { serverName: string, content: string }) {
     this.serverElements.push({
       type: 'blueprint',
       name: blueprintData.serverName,
       content: blueprintData.content
     });
+  }
+
+  onChangeFirst() {
+    this.serverElements[0].name = 'Changed!';
   }
 }

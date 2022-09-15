@@ -6,11 +6,16 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
+      <button
+        class='btn btn-primary'
+      (click)='onChangeFirst()'
+      >Change first element</button>
       <app-server-element
         *ngFor='let serverEl of serverElements'
         [element]='serverEl'
+        [name]='serverEl.name'
       >
-        <p>
+        <p #contentParagraph>
           <strong *ngIf="serverEl.type === 'server'" style="color: red">{{ serverEl.content }}</strong>
           <em *ngIf="serverEl.type === 'blueprint'">{{ serverEl.content }}</em>
         </p>

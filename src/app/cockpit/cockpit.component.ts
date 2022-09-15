@@ -33,30 +33,30 @@ export class CockpitComponent implements OnInit {
   //     content: this.newServerContent});}
   //
 
-  // onAddServer(nameInput: HTMLInputElement, contentInput: HTMLInputElement) {
+  onAddServer(nameInput: HTMLInputElement, contentInput: HTMLInputElement) {
+    this.serverCreated.emit({
+      serverName: nameInput.value,
+      content: contentInput.value
+    });
+  }
+
+  onAddBlueprint(nameInput: HTMLInputElement, contentInput: HTMLInputElement) {
+    this.blueprintCreated.emit({
+      serverName: nameInput.value,
+      content: contentInput.value});
+  }
+
+  // onAddServer() {
   //   this.serverCreated.emit({
-  //     serverName: nameInput.value,
-  //     content: contentInput.value
+  //     serverName: this.serverName.nativeElement.value,
+  //     content: this.serverContent.nativeElement.value
   //   });
   // }
   //
-  // onAddBlueprint(nameInput: HTMLInputElement, contentInput: HTMLInputElement) {
+  // onAddBlueprint() {
   //   this.blueprintCreated.emit({
-  //     serverName: nameInput.value,
-  //     content: contentInput.value});
+  //     serverName: this.serverName.nativeElement.value,
+  //     content: this.serverContent.nativeElement.value
+  //   });
   // }
-
-  onAddServer() {
-    this.serverCreated.emit({
-      serverName: this.serverName.nativeElement.value,
-      content: this.serverContent.nativeElement.value
-    });
-  }
-
-  onAddBlueprint() {
-    this.blueprintCreated.emit({
-      serverName: this.serverName.nativeElement.value,
-      content: this.serverContent.nativeElement.value
-    });
-  }
 }
